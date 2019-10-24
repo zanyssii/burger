@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="jumbotron">
+        <img src="/public/image/burger.jpg" alt="Hamburger">
+        <br><br>
+        <h1 class="display-4">Handlebars</h1>
+        <hr class="my-4">
+        <p>Place your order</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="addBurger">
+                <h2>Order a Burger</h2>
+                <p>Make your burger</p>
+                <form class="addBurgerForm">
+                    <textarea type="text" name="burger_name" id="burger_name"></textarea>
+                    <br>
+                    <button type="submit" class="submitOrder">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="availableBurger">
+                <h3>Available Burgers</h3>
+                <div class="row">
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                            {{> burgers/burger-block devoured=false}}
+                        {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 offset-md-2">
+            <div class="devouredBurger">
+                <h3>Devoured Burgers</h3>
+                <div class="row">
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            {{> burgers/burger-block devoured=true}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Inna Atamanova | <a href="https://github.com/zanyssii/burger" target="_blank">GitHub Repo</a></span>
+    </div>
+</footer>
