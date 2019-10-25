@@ -1,6 +1,7 @@
 $(function() {
 
     $(".devour").on("click", function(event) {
+        event.preventDefault();
         var id = $(this).data("id");
         var makeDevoured = $(this).data("devoured");
         var devouredState = {
@@ -13,21 +14,19 @@ $(function() {
         })
         .then(
             function() {
-                console.log("changed devoured to", makeDevoured);
-            
                 location.reload();
             }
         );
     });
 
-    $(".addBurgerForm").on("submit", function(event) {
-
+    $(".submitOrder").on("click", function(event) {
         event.preventDefault();
 
         placeOrder();
     });
 
-    $(".addBurgerForm").keypress(function (e) {
+    $(".submitOrder").keypress(function (event) {
+        event.preventDefault();
         if (e.which == 13) {
             placeOrder();
 

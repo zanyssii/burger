@@ -1,6 +1,6 @@
 <div class="container">
     <div class="jumbotron">
-        <img src="/public/image/burger.jpg" alt="Hamburger">
+        <img src="/image/burger.jpg" alt="Hamburger">
         <br><br>
         <h1 class="display-4">Handlebars</h1>
         <hr class="my-4">
@@ -14,7 +14,7 @@
                 <form class="addBurgerForm">
                     <textarea type="text" name="burger_name" id="burger_name"></textarea>
                     <br>
-                    <button type="submit" class="submitOrder">Submit Order</button>
+                    <button type='button' class="submitOrder">Submit Order</button>
                 </form>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <div class="row">
                     {{#each burgers}}
                         {{#unless devoured}}
-                            {{> burgers/burger-block devoured=false}}
+                            {{> block devoured=false}}
                         {{/unless}}
                     {{/each}}
                 </div>
@@ -38,7 +38,7 @@
                 <div class="row">
                     {{#each burgers}}
                         {{#if devoured}}
-                            {{> burgers/burger-block devoured=true}}
+                            {{> block devoured=true}}
                         {{/if}}
                     {{/each}}
                 </div>
